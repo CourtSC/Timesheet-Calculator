@@ -1,7 +1,9 @@
 # A program to calculate what time I need to clock out on Friday to avoid OT.
 
 import logging
-from datetime import datetime, timedelta, time
+from datetime import datetime, timedelta
+import tkinter as tk
+from tkinter import messagebox
 
 logging.disable(logging.CRITICAL)
 
@@ -38,4 +40,6 @@ logging.debug(f"dtClockTime is {dtClockTime}")
 clockOutTime = dtClockTime + timedelta(minutes=((hoursRemaining * 60) + 30))
 logging.debug(f"clockOutTime is {clockOutTime}")
 
-print(f"You need to clock out at {clockOutTime.time()}.")
+tk.messagebox.showinfo(
+    "Clock Out Time", f"You need to clock out at {clockOutTime.time()}."
+)
